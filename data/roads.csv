@@ -1,0 +1,2 @@
+road_id,from_location_id,to_location_id,distance_km,travel_time_min,condition_weight
+R001,L008,L003,0.8,10,1.3
