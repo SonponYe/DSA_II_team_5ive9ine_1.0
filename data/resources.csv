@@ -1,2 +1,31 @@
 resource_id,resource_type,home_location_id,capacity,availability_status
-W001,Plumber,L008,1,AVAILABLE
+W001,Plumber,L036,1,AVAILABLE
+W002,Plumber,L036,1,BUSY
+W003,Plumber,L036,1,AVAILABLE
+W004,Plumber,L036,1,AVAILABLE
+W005,Plumber,L036,1,AVAILABLE
+W006,Plumber,L036,1,BUSY
+W007,Electrician,L036,1,AVAILABLE
+W008,Electrician,L036,1,AVAILABLE
+W009,Electrician,L036,1,AVAILABLE
+W010,Electrician,L036,1,AVAILABLE
+W011,Electrician,L036,1,AVAILABLE
+W012,Electrician,L036,1,AVAILABLE
+W013,Carpenter,L036,1,AVAILABLE
+W014,Carpenter,L036,1,AVAILABLE
+W015,Carpenter,L036,1,AVAILABLE
+W016,Carpenter,L036,1,AVAILABLE
+W017,General Technician,L036,1,BUSY
+W018,General Technician,L036,1,AVAILABLE
+W019,General Technician,L036,1,BUSY
+W020,General Technician,L036,1,AVAILABLE
+W021,General Technician,L036,1,BUSY
+W022,General Technician,L036,1,AVAILABLE
+W023,General Technician,L036,1,AVAILABLE
+W024,General Technician,L036,1,AVAILABLE
+W025,Maintenance Van,L036,1,AVAILABLE
+W026,Maintenance Van,L036,1,BUSY
+W027,Maintenance Van,L036,1,AVAILABLE
+W028,Motorbike,L036,1,OFF_DUTY
+W029,Motorbike,L036,1,OFF_DUTY
+W030,Motorbike,L036,1,AVAILABLE

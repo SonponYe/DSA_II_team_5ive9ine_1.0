@@ -1,2 +1,51 @@
-location_id,name,area,location_type,x_coord,y_coord
-L001,Mensah Sarbah Hall,Residential North,Hostel,5.6502,-0.1869
+location_id,name,area,location_type,latitude,longitude
+L001,Mensah Sarbah Hall,Residential North,Hostel,5.6508,-0.1873
+L002,Volta Hall,Residential North,Hostel,5.6547,-0.1843
+L003,Commonwealth Hall,Residential North,Hostel,5.6575,-0.1848
+L004,Legon Hall,Residential North,Hostel,5.6528,-0.1855
+L005,Akuafo Hall,Residential North,Hostel,5.6521,-0.1878
+L006,Alexander Adum Kwapong Hall,Residential South,Hostel,5.6425,-0.1856
+L007,Elizabeth Frances Sey Hall,Residential South,Hostel,5.6433,-0.1844
+L008,Dr. Hilla Limann Hall,Residential South,Hostel,5.6447,-0.1872
+L009,Jean Nelson Aka Hall,Residential South,Hostel,5.6455,-0.186
+L010,Jubilee Hall,Residential North,Hostel,5.6492,-0.1832
+L011,Africa Union Hall (Pentagon),Residential South,Hostel,5.6453,-0.1912
+L012,International Students Hostel (ISH),Residential South,Hostel,5.6468,-0.1895
+L013,Department of Computer Science,Academic West,Academic,5.6579,-0.1879
+L014,Department of Mathematics,Academic West,Academic,5.6582,-0.1884
+L015,Department of Physics,Academic West,Academic,5.6587,-0.1875
+L016,Department of Chemistry,Academic West,Academic,5.6593,-0.1868
+L017,School of Engineering Sciences,Academic West,Academic,5.6598,-0.1861
+L018,School of Law,Academic Central,Academic,5.6565,-0.1858
+L019,University of Ghana Business School (UGBS),Academic Central,Academic,5.6548,-0.1885
+L020,School of Pharmacy,Academic West,Academic,5.657,-0.1891
+L021,Department of Political Science,Academic Central,Academic,5.6558,-0.187
+L022,School of Performing Arts,Academic Central,Academic,5.6552,-0.1835
+L023,Faculty of Agriculture,Academic North,Academic,5.6605,-0.185
+L024,School of Social Sciences,Academic Central,Academic,5.6562,-0.1865
+L025,ISSER,Academic West,Academic,5.654,-0.1898
+L026,JQB Lecture Hall,Academic Central,Academic,5.6555,-0.1875
+L027,GCB Lecture Building,Academic Central,Academic,5.6542,-0.187
+L028,Balme Library,Academic Central,Library,5.6554,-0.1856
+L029,UGBS Graduate Library,Academic Central,Library,5.6551,-0.189
+L030,Ghana-Korea Information Access Center (IAC),Academic Central,Library,5.6557,-0.1852
+L031,Vice-Chancellor's Secretariat,Administration,Admin,5.657,-0.1838
+L032,Registry / Administrative Building,Administration,Admin,5.6568,-0.1842
+L033,Finance Office Complex,Administration,Admin,5.6562,-0.184
+L034,Dean of Student Affairs Office,Administration,Admin,5.6541,-0.186
+L035,University Health Centre (Legon Hospital),East Campus,Medical,5.6508,-0.1809
+L036,University Maintenance Workshop,East Campus,Operations,5.6522,-0.182
+L037,Grounds and Gardens Depot,East Campus,Operations,5.6515,-0.1812
+L038,ICT Directorate Building (UGCS),Academic Central,Operations,5.6551,-0.1862
+L039,Physical Development & Municipal Services (PDMSD),East Campus,Operations,5.6528,-0.1818
+L040,Campus Security Headquarters,Academic Central,Operations,5.656,-0.1848
+L041,Great Hall,Academic North,Social,5.6589,-0.1842
+L042,Central Cafeteria / Night Market Area,Residential South,Social,5.6498,-0.1882
+L043,Student Representative Council (SRC) Building,Residential South,Social,5.6502,-0.1865
+L044,University Banking Square,Academic Central,Social,5.6538,-0.1875
+L045,University of Ghana Sports Stadium,East Campus,Recreation,5.651,-0.1775
+L046,Legon Pool Complex,East Campus,Recreation,5.6532,-0.1825
+L047,UG Sports Pavilion & Tennis Courts,East Campus,Recreation,5.6525,-0.1795
+L048,Legon Main Gate (N1 Highway),Gate,Gate,5.6512,-0.1898
+L049,Okponglo Gate,Gate,Gate,5.6418,-0.1785
+L050,Central Bus Stop / Shuttle Terminal,Academic Central,Transport,5.6548,-0.1862
