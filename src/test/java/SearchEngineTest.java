@@ -100,4 +100,20 @@ class SearchEngineTest {
         // boundary case: timing an empty array still returns a non-negative duration
         assertTrue(SearchEngine.timeLinearSearch(new ServiceRequest[0], "category", "Plumbing") >= 0);
     }
+
+    @Test
+    void searchSkipsNullRequestsAndHandlesEmptyInput() {
+        ServiceRequest[] requests = sample();
+        ServiceRequest[] withNulls = { requests[0], null, requests[2], null, requests[4] };
+
+        ServiceRequest[] structural = SearchEngine.linearSearch(withNulls, "category", "Structural");
+        assertEquals(1, structural.length);
+        assertSame(requests[0], structural[0]);
+
+        assertNull(SearchEngine.binarySearch(new ServiceRequest[0], "Q001"));
+
+        ServiceRequest[] invalidSorted = { requests[0], null, requests[2] };
+        assertThrows(IllegalArgumentException.class,
+                () -> SearchEngine.binarySearch(invalidSorted, "Q001"));
+    }
 }

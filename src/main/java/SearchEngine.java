@@ -1,6 +1,9 @@
 public class SearchEngine {
 
     private static String fieldValue(ServiceRequest request, String field) {
+        if (request == null) {
+            throw new IllegalArgumentException("request must not be null");
+        }
         switch (field) {
             case "urgency": return request.getUrgency();
             case "category": return request.getCategory();
@@ -8,6 +11,13 @@ public class SearchEngine {
             case "status": return request.getStatus();
             default: throw new IllegalArgumentException("Unknown search field: " + field);
         }
+    }
+
+    private static boolean matches(ServiceRequest request, String field, String value) {
+        if (request == null) {
+            return false;
+        }
+        return value.equals(fieldValue(request, field));
     }
 
     // Search through ALL requests — does NOT require sorted input
@@ -19,7 +29,7 @@ public class SearchEngine {
         }
         int matchCount = 0;
         for (ServiceRequest request : requests) {
-            if (value.equals(fieldValue(request, field))) {
+            if (matches(request, field, value)) {
                 matchCount++;
             }
         }
@@ -27,7 +37,7 @@ public class SearchEngine {
         ServiceRequest[] matches = new ServiceRequest[matchCount];
         int index = 0;
         for (ServiceRequest request : requests) {
-            if (value.equals(fieldValue(request, field))) {
+            if (matches(request, field, value)) {
                 matches[index++] = request;
             }
         }
@@ -39,6 +49,12 @@ public class SearchEngine {
         if (sortedRequests == null || requestId == null) {
             throw new IllegalArgumentException("sortedRequests and requestId must not be null");
         }
+        for (ServiceRequest request : sortedRequests) {
+            if (request == null || request.getRequestId() == null) {
+                throw new IllegalArgumentException("sortedRequests must not contain null entries or requests with null requestId");
+            }
+        }
+
         int low = 0;
         int high = sortedRequests.length - 1;
         while (low <= high) {
