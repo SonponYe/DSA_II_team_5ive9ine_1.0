@@ -63,7 +63,7 @@ class SortEngineTest {
 
         // invalid input
         assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(sample(), "notAKey"));
-        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(null, "requestId"));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(null, "requestId"));        assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(sample(), null));        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(sample(), null));
     }
 
     @Test
@@ -82,6 +82,7 @@ class SortEngineTest {
         // invalid input
         assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(sample(), "notAKey"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(null, "deadline"));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(sample(), null));
     }
 
     @Test
@@ -104,6 +105,7 @@ class SortEngineTest {
         // invalid input
         assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(sample(), "notAKey"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(null, "requestId"));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(sample(), null));
     }
 
     @Test

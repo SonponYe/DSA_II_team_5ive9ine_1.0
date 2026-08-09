@@ -92,7 +92,7 @@ public class SortEngine {
     }
 
     public static void quickSort(ServiceRequest[] arr, String sortBy) {
-        if (arr == null) throw new IllegalArgumentException("arr must not be null");
+        validateSortInput(arr, sortBy);
         if (arr.length < 2) return;
         quickSortHelper(arr, 0, arr.length - 1, sortBy);
     }
