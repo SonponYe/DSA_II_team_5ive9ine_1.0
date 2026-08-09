@@ -42,9 +42,13 @@ class SortEngineTest {
         SortEngine.selectionSort(single, "urgencyScore");
         assertEquals("Q001", single[0].getRequestId());
 
-        // invalid input: unknown sort key, null array
+        // invalid input: unknown sort key, null array, null entries
         assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(sample(), "notAKey"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(null, "urgencyScore"));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(sample(), null));
+        ServiceRequest[] containsNull = sample();
+        containsNull[2] = null;
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(containsNull, "urgencyScore"));
     }
 
     @Test
@@ -63,7 +67,11 @@ class SortEngineTest {
 
         // invalid input
         assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(sample(), "notAKey"));
-        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(null, "requestId"));        assertThrows(IllegalArgumentException.class, () -> SortEngine.selectionSort(sample(), null));        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(sample(), null));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(null, "requestId"));
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(sample(), null));
+        ServiceRequest[] containsNull = sample();
+        containsNull[2] = null;
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.insertionSort(containsNull, "requestId"));
     }
 
     @Test
@@ -83,6 +91,9 @@ class SortEngineTest {
         assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(sample(), "notAKey"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(null, "deadline"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(sample(), null));
+        ServiceRequest[] containsNull = sample();
+        containsNull[2] = null;
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.mergeSort(containsNull, "deadline"));
     }
 
     @Test
@@ -106,6 +117,9 @@ class SortEngineTest {
         assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(sample(), "notAKey"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(null, "requestId"));
         assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(sample(), null));
+        ServiceRequest[] containsNull = sample();
+        containsNull[2] = null;
+        assertThrows(IllegalArgumentException.class, () -> SortEngine.quickSort(containsNull, "requestId"));
     }
 
     @Test

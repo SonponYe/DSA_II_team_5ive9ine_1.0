@@ -23,6 +23,11 @@ public class SortEngine {
         if (sortBy == null) {
             throw new IllegalArgumentException("sortBy must not be null");
         }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == null) {
+                throw new IllegalArgumentException("arr must not contain null ServiceRequest entries");
+            }
+        }
     }
 
     private static void swap(ServiceRequest[] arr, int i, int j) {
