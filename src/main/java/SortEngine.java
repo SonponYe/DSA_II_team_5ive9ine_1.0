@@ -1,12 +1,27 @@
 public class SortEngine {
 
     private static int compare(ServiceRequest a, ServiceRequest b, String sortBy) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("ServiceRequest entries must not be null");
+        }
+        if (sortBy == null) {
+            throw new IllegalArgumentException("sortBy must not be null");
+        }
         switch (sortBy) {
             case "urgencyScore": return Integer.compare(a.getUrgencyScore(), b.getUrgencyScore());
             case "deadline": return a.getDeadline().compareTo(b.getDeadline());
             case "timeSubmitted": return a.getTimeSubmitted().compareTo(b.getTimeSubmitted());
             case "requestId": return a.getRequestId().compareTo(b.getRequestId());
             default: throw new IllegalArgumentException("Unknown sort key: " + sortBy);
+        }
+    }
+
+    private static void validateSortInput(ServiceRequest[] arr, String sortBy) {
+        if (arr == null) {
+            throw new IllegalArgumentException("arr must not be null");
+        }
+        if (sortBy == null) {
+            throw new IllegalArgumentException("sortBy must not be null");
         }
     }
 
@@ -19,7 +34,7 @@ public class SortEngine {
     // All sort methods take an array and a sort key
     // sortBy: "urgencyScore", "deadline", "timeSubmitted", "requestId"
     public static void selectionSort(ServiceRequest[] arr, String sortBy) {
-        if (arr == null) throw new IllegalArgumentException("arr must not be null");
+        validateSortInput(arr, sortBy);
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -32,7 +47,7 @@ public class SortEngine {
     }
 
     public static void insertionSort(ServiceRequest[] arr, String sortBy) {
-        if (arr == null) throw new IllegalArgumentException("arr must not be null");
+        validateSortInput(arr, sortBy);
         for (int i = 1; i < arr.length; i++) {
             ServiceRequest key = arr[i];
             int j = i - 1;
@@ -45,7 +60,7 @@ public class SortEngine {
     }
 
     public static void mergeSort(ServiceRequest[] arr, String sortBy) {
-        if (arr == null) throw new IllegalArgumentException("arr must not be null");
+        validateSortInput(arr, sortBy);
         if (arr.length < 2) return;
         mergeSortHelper(arr, 0, arr.length - 1, sortBy);
     }

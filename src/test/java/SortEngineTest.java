@@ -126,5 +126,5 @@ class SortEngineTest {
                 () -> SortEngine.timeSort(null, sample(), "urgencyScore"));
         assertThrows(IllegalArgumentException.class,
                 () -> SortEngine.timeSort("quick", null, "urgencyScore"));
-    }
-}
+        assertThrows(IllegalArgumentException.class,
+                () -> SortEngine.timeSort("quick", sample(), null));
