@@ -116,4 +116,18 @@ class SearchEngineTest {
         assertThrows(IllegalArgumentException.class,
                 () -> SearchEngine.binarySearch(invalidSorted, "Q001"));
     }
+
+    @Test
+    void linearSearchIgnoresRequestsWithNullFieldValues() {
+        ServiceRequest[] requests = sample();
+        ServiceRequest nullUrgency = new ServiceRequest("Q006", "L010", "L036",
+                "Electrical", null, 2,
+                "2026-07-05T10:00:00", "2026-07-05T12:00:00", "NEW");
+        ServiceRequest[] input = { requests[0], nullUrgency, requests[2] };
+
+        ServiceRequest[] low = SearchEngine.linearSearch(input, "urgency", "LOW");
+
+        assertEquals(1, low.length);
+        assertSame(requests[0], low[0]);
+    }
 }
