@@ -206,9 +206,12 @@ All methods take ServiceRequest arrays — use G1's class directly.
 public class SearchEngine {
 
     // Search through ALL requests — does NOT require sorted input
+    // field accepts any ServiceRequest field (superset of the original 4, added
+    // Week 2 by G4): "requestId", "sourceLocationId", "destinationLocationId",
+    // "category", "urgency", "urgencyScore", "timeSubmitted", "deadline", "status"
     public static ServiceRequest[] linearSearch(
         ServiceRequest[] requests,
-        String field,     // "urgency", "category", "sourceLocationId", "status"
+        String field,
         String value      // e.g. "CRITICAL", "Plumbing", "L001", "NEW"
     );
 

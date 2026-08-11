@@ -113,6 +113,19 @@ class SearchEngineTest {
         assertArrayEquals(new String[]{"Q003", "Q002", "Q005"}, ids(found));
     }
 
+    @Test
+    void linearSearchIgnoresRequestsWithNullFieldValues() {
+        // A null field VALUE (e.g. urgency never set) is different from a null
+        // element — matches() must fall through to "no match", not throw.
+        ServiceRequest[] requests = unsortedFixture();
+        ServiceRequest nullUrgency = make("Q006", "L010", "Electrical", null,
+                2, "2026-07-05T10:00:00", "2026-07-05T12:00:00", "NEW");
+        ServiceRequest[] withNullField = {requests[0], nullUrgency, requests[2]};
+
+        ServiceRequest[] found = SearchEngine.linearSearch(withNullField, "urgency", "MEDIUM");
+        assertArrayEquals(new String[]{"Q003"}, ids(found));
+    }
+
 
 
     // The nulls below are the point of the test — the suppression stops the IDE

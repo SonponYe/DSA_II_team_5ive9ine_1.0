@@ -41,7 +41,7 @@ public class SearchEngine {
 
 
     // Search through ALL requests — does NOT require sorted input
-    // field: "urgency", "category", "sourceLocationId", "status"
+    // field: any ServiceRequest field — see SEARCHABLE_FIELDS
     // value: e.g. "CRITICAL", "Plumbing", "L001", "NEW"
     public static ServiceRequest[] linearSearch(ServiceRequest[] requests, String field, String value) {
         if (requests == null) throw new IllegalArgumentException("requests must not be null");
