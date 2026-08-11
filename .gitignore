@@ -14,6 +14,7 @@ target/
 *.db
 *.sqlite
 *.sqlite3
+branch_activity_log.md
 
 # OS
 .DS_Store
