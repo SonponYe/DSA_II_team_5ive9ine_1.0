@@ -206,9 +206,12 @@ All methods take ServiceRequest arrays — use G1's class directly.
 public class SearchEngine {
 
     // Search through ALL requests — does NOT require sorted input
+    // field accepts any ServiceRequest field (superset of the original 4, added
+    // Week 2 by G4): "requestId", "sourceLocationId", "destinationLocationId",
+    // "category", "urgency", "urgencyScore", "timeSubmitted", "deadline", "status"
     public static ServiceRequest[] linearSearch(
         ServiceRequest[] requests,
-        String field,     // "urgency", "category", "sourceLocationId", "status"
+        String field,
         String value      // e.g. "CRITICAL", "Plumbing", "L001", "NEW"
     );
 
@@ -230,16 +233,28 @@ public class SortEngine {
 
     // All sort methods take an array and a sort key
     // sortBy: "urgencyScore", "deadline", "timeSubmitted", "requestId"
+    // An empty array is valid input (it is already sorted). A null array, a null
+    // or unknown sortBy, or a null element inside the array throws
+    // IllegalArgumentException — sorts never leave a half-permuted array behind.
     public static void selectionSort(ServiceRequest[] arr, String sortBy);
     public static void insertionSort(ServiceRequest[] arr, String sortBy);
     public static void mergeSort    (ServiceRequest[] arr, String sortBy);
     public static void quickSort    (ServiceRequest[] arr, String sortBy);
 
+    // DEMONSTRATION ONLY — added Week 2 by G4. Do NOT call this to sort anything
+    // the system relies on; call quickSort() instead.
+    // quickSort() picks a random pivot, so it is O(n log n) expected on any input.
+    // quickSortLastPivot() pins the pivot to arr[high], so already-sorted input
+    // (which is how service_requests.csv ships) drives it to O(n^2). It exists
+    // purely so the performance lab can graph the two against each other.
+    public static void quickSortLastPivot(ServiceRequest[] arr, String sortBy);
+
     // For performance lab — sorts a copy, returns time in nanoseconds
     public static long timeSort(String algorithm,
                                 ServiceRequest[] arr,
                                 String sortBy);
-    // algorithm values: "selection", "insertion", "merge", "quick"
+    // algorithm values: "selection", "insertion", "merge", "quick",
+    //                   "quickLastPivot"  (added Week 2 — see the warning above)
 }
 ```
 
