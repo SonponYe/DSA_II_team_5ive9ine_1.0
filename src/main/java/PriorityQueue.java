@@ -2,12 +2,6 @@ import java.util.NoSuchElementException;
 
 // Min-Heap keyed on ServiceRequest urgency (CRITICAL=1 ... LOW=4).
 // Backed by G2's DynamicArray<ServiceRequest> per METHOD_SIGNATURES.md.
-//
-// NOTE (G3, 2026-08-07): DynamicArray.java is still an unimplemented stub
-// (every method throws UnsupportedOperationException) at the time this class
-// was written. This class compiles and its logic is complete, but
-// PriorityQueueTest will fail at runtime until G2 delivers a working
-// DynamicArray. Flagged to the team lead — chase G2.
 public class PriorityQueue {
 
     private final DynamicArray<ServiceRequest> heap = new DynamicArray<>();
