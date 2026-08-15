@@ -1,9 +1,8 @@
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 public class LinkedList<T> implements Iterable<T> {
 
-    // Node class
+    // Node represents one item in the linked list
     private static class Node<T> {
         T data;
         Node<T> next;
@@ -28,6 +27,7 @@ public class LinkedList<T> implements Iterable<T> {
         if (tail == null) {
             tail = newNode;
         }
+
         size++;
     }
 
@@ -71,13 +71,13 @@ public class LinkedList<T> implements Iterable<T> {
             current = current.next;
         }
 
-        throw new NoSuchElementException("Target not found");
+        throw new IllegalStateException("Target not found");
     }
 
     // Removes and returns the first item
     public T removeFirst() {
         if (isEmpty()) {
-            throw new NoSuchElementException("List is empty");
+            throw new IllegalStateException("List is empty");
         }
 
         T item = head.data;
@@ -95,7 +95,7 @@ public class LinkedList<T> implements Iterable<T> {
     // Removes and returns the last item
     public T removeLast() {
         if (isEmpty()) {
-            throw new NoSuchElementException("List is empty");
+            throw new IllegalStateException("List is empty");
         }
 
         if (head == tail) {
@@ -115,8 +115,10 @@ public class LinkedList<T> implements Iterable<T> {
         }
 
         T item = tail.data;
+
         tail = current;
         tail.next = null;
+
         size--;
 
         return item;
@@ -161,13 +163,13 @@ public class LinkedList<T> implements Iterable<T> {
     // Returns the first item without removing it
     public T getFirst() {
         if (isEmpty()) {
-            throw new NoSuchElementException("List is empty");
+            throw new IllegalStateException("List is empty");
         }
 
         return head.data;
     }
 
-    // Returns the number of items
+    // Returns the number of items in the list
     public int size() {
         return size;
     }
@@ -193,7 +195,7 @@ public class LinkedList<T> implements Iterable<T> {
             @Override
             public T next() {
                 if (!hasNext()) {
-                    throw new NoSuchElementException();
+                    throw new IllegalStateException("No more elements");
                 }
 
                 T item = current.data;

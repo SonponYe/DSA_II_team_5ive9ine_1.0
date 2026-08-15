@@ -1,10 +1,20 @@
 public class CircularQueue<T> {
 
-    private T[] queue;
-    private int front;
-    private int rear;
+    // Node represents one item in the circular queue
+    private static class Node<T> {
+        T data;
+        Node<T> next;
+
+        Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    private Node<T> front;
+    private Node<T> rear;
     private int size;
-    private int capacity;
+    private final int capacity;
 
     public CircularQueue(int capacity) {
         if (capacity <= 0) {
@@ -12,9 +22,8 @@ public class CircularQueue<T> {
         }
 
         this.capacity = capacity;
-        this.queue = (T[]) new Object[capacity];
-        this.front = 0;
-        this.rear = 0;
+        this.front = null;
+        this.rear = null;
         this.size = 0;
     }
 
@@ -24,8 +33,19 @@ public class CircularQueue<T> {
             throw new IllegalStateException("Queue is full");
         }
 
-        queue[rear] = item;
-        rear = (rear + 1) % capacity;
+        Node<T> newNode = new Node<>(item);
+
+        if (isEmpty()) {
+            front = newNode;
+            rear = newNode;
+
+            rear.next = front;
+        } else {
+            newNode.next = front;
+
+            rear.next = newNode;
+            rear = newNode;
+        }
 
         size++;
     }
@@ -36,9 +56,16 @@ public class CircularQueue<T> {
             throw new IllegalStateException("Queue is empty");
         }
 
-        T item = queue[front];
-        queue[front] = null;
-        front = (front + 1) % capacity;
+        T item = front.data;
+
+        if (size == 1) {
+            front = null;
+            rear = null;
+        } else {
+            front = front.next;
+            rear.next = front;
+        }
+
         size--;
 
         return item;
@@ -50,7 +77,7 @@ public class CircularQueue<T> {
             throw new IllegalStateException("Queue is empty");
         }
 
-        return queue[front];
+        return front.data;
     }
 
     // Checks whether the queue is empty
